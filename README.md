@@ -6,9 +6,8 @@ modules, and validation code for
 > Jérôme Nicolas, "Thermal modular commutators as joint probes of gauge flux
 > and broken time-reversal symmetry in axial spin networks," version 0.6.0.
 
-The repository is being prepared for its first public archival release. The
-version-specific Zenodo DOI will be added to this file, `CITATION.cff`, and
-the manuscript before the release is tagged.
+Version 0.6.0 is archived on Zenodo under the version-specific DOI
+[10.5281/zenodo.22860690](https://doi.org/10.5281/zenodo.22860690).
 
 ## Main exact result
 
@@ -117,10 +116,10 @@ Zenodo. Its external SHA-256 digest is reported in both release records.
 
 ## Citation
 
-Citation metadata are provided in `CITATION.cff`. The final public release
-will cite the version-specific Zenodo DOI because it identifies the exact
-archived files. The Zenodo concept DOI will identify the full version history
-and can be added to the live README after the immutable release is published.
+Citation metadata are provided in `CITATION.cff`. Cite version 0.6.0 through
+its version-specific Zenodo DOI,
+[10.5281/zenodo.22860690](https://doi.org/10.5281/zenodo.22860690), which
+identifies the exact archived files.
 
 ## Licenses
 
