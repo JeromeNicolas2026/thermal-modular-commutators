@@ -32,8 +32,7 @@ does not assert an all-orders cycle decomposition.
 
 ## Manuscript
 
-- `modular_flux_PRB_v06.tex` is the Physical Review B source and requires
-  REVTeX 4.2.
+- `modular_flux_PRB_v06.tex`  requires REVTeX 4.2.
 - `modular_flux_preprint_v06.tex` is the portable article-class source.
 - `modular_flux_preprint_v06.pdf` is the rendered portable preprint.
 - `unicyclic_proof_section.tex` contains the complete proof of the
