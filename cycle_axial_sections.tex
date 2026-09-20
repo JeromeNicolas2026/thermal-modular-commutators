@@ -1,0 +1,449 @@
+\section{Primitive cycle sectors on general axial graphs}
+\label{sec:primitive-cycles}
+
+The unicyclic theorem has a coefficient-level extension to an arbitrary
+finite axial graph.  This extension concerns one specified coupling
+multidegree.  It is not an expansion of the full answer as a sum of
+independent cycle functions.
+
+Choose one reference orientation for every edge and formally complexify the
+hopping parameters by treating $t_{xy}$ and $\bar t_{xy}$ as algebraically
+independent for each reference-oriented edge $(x,y)$.  Define
+$t_{yx}=\bar t_{xy}$ and $\bar t_{yx}=t_{xy}$.  The physical specialization
+is $\bar t_{xy}=\overline{t_{xy}}$.  For an oriented simple cycle
+$\eta=(x_1,\ldots,x_r,x_1)$, let
+\begin{equation}
+ W_\eta=\prod_{j=1}^r t_{x_jx_{j+1}},
+ \qquad
+ \bar W_\eta=\prod_{j=1}^r t_{x_{j+1}x_j},
+ \qquad x_{r+1}=x_1.
+ \label{eq:primitive-W-eta}
+\end{equation}
+The second monomial is the reverse orientation of the first.  Let
+$\Pi_\eta$ project a polynomial onto the direct sum of the monomial spaces
+spanned by
+\begin{equation*}
+ \{h_xW_\eta,h_x\bar W_\eta:x\in V\}.
+\end{equation*}
+We define
+$\operatorname{Prim}_\eta m_{r+1}=\Pi_\eta m_{r+1}$.  Thus this sector
+contains no additional hopping, longitudinal exchange, or field factor.
+Finite dimensionality and the scaling $H\mapsto\lambda H$ imply that every
+$m_q$ is a homogeneous polynomial of total parameter degree $q$.
+
+\begin{proposition}[Primitive cycle coefficient]
+\label{prop:primitive-cycle}
+Let $G$ be a finite simple graph.  Equip it with the axial Hamiltonian
+\eqref{eq:axial-H} and arbitrary irreducible site spins.  Let $A,B,C$ be
+three distinct marked vertices and write
+\begin{equation}
+ \Mmod_\beta(AB,BC)=\sum_{q\geq0}\beta^q m_q.
+ \label{eq:primitive-series}
+\end{equation}
+For every simple cycle $\eta$ of length $r$,
+\begin{equation}
+ \operatorname{Prim}_\eta m_{r+1}=0
+ \label{eq:primitive-cycle-zero}
+\end{equation}
+unless $A,B,C\in V(\eta)$.  If the cycle contains the three marked
+vertices, orient it so that they occur in the cyclic order
+$A\to B\to C\to A$.  Then the formally complexified coefficient is
+\begin{equation}
+ \boxed{
+ \operatorname{Prim}_\eta m_{r+1}
+ =\frac{(-1)^rh_B}{\ii}
+ \left(\prod_{x\in V(\eta)}\kappa_x\right)
+ \left(W_\eta-\bar W_\eta\right).}
+ \label{eq:primitive-cycle-formal}
+\end{equation}
+On the physical parameter slice,
+\begin{equation}
+ \boxed{
+ \operatorname{Prim}_\eta m_{r+1}
+ =2(-1)^r h_B
+ \left(\prod_{x\in V(\eta)}\kappa_x\right)
+ \operatorname{Im}W_\eta .}
+ \label{eq:primitive-cycle-coefficient}
+\end{equation}
+No edge-disjointness assumption is imposed on the other cycles of $G$.
+\end{proposition}
+
+\begin{proof}
+Fix $x\in V$ and extract the coefficients of $h_xW_\eta$ and
+$h_x\bar W_\eta$.  Every parameter absent from these monomials is thereby set
+to zero.  This includes all $J^z$ couplings, all fields except $h_x$, and all
+hoppings outside $\eta$.  Retain both formal hopping orientations on $\eta$.
+The surviving Hamiltonian is a tensor sum of the isolated cycle
+Hamiltonian and, when $x$ lies outside the cycle, a one-site spectator
+Hamiltonian.  Its Gibbs operator factorizes.  Normalized partial traces
+remove every spectator factor exactly.
+
+If $\eta$ contains $A,B,C$, the arbitrary-spin unicyclic theorem applies to
+the physical slice of the isolated marked cycle.  Since that identity holds
+for every complex hopping value, it extends polynomially to independent
+$t$ and $\bar t$.  Projection onto $h_xW_\eta$ and $h_x\bar W_\eta$, for
+each $x$ and both orientations, gives
+Eq.~\eqref{eq:primitive-cycle-formal} and selects $h_B$.  A field on a
+spectator component cannot enter the reduced state on $ABC$.
+
+Suppose instead that $\eta$ omits at least one marked vertex.  If it omits
+$C$, coefficient extraction gives
+$\rho_{ABC}=\rho_{AB}\otimes\rho_C$.  The modular commutator reduces to
+\begin{equation*}
+ \ii\Tr\rho_{AB}
+ [\log\rho_{AB},I_A\otimes\log\rho_B]=0.
+\end{equation*}
+The case in which $A$ is omitted is analogous.  If $B$ is omitted, the
+lifted reduced logarithms are sums of one-site logarithms and commute.  These
+three cases also cover cycles that omit two or all three marked vertices.
+Polynomial coefficient extraction therefore proves
+Eq.~\eqref{eq:primitive-cycle-zero} on the original graph.
+\end{proof}
+
+The proposition determines the complete first admissible coefficient when the
+shortest hopping cycles are considered together.  Let $G_t$ be the graph
+obtained by deleting the edges whose hopping amplitude is zero.
+
+\begin{corollary}[Girth coefficient]
+\label{cor:girth-onset}
+Assume that $G_t$ contains a cycle and let $g$ be its girth.  Then
+\begin{equation}
+ m_q=0\quad(0\leq q\leq g)
+ \label{eq:girth-lower-zero}
+\end{equation}
+and
+\begin{equation}
+ \boxed{
+ m_{g+1}=2(-1)^g h_B
+ \sum_{\substack{\eta\subseteq G_t\ \mathrm{simple}\,,\ |\eta|=g\\
+                   A,B,C\in V(\eta)}}
+ \left(\prod_{x\in V(\eta)}\kappa_x\right)
+ \operatorname{Im}W_\eta .}
+ \label{eq:girth-coefficient}
+\end{equation}
+Each unoriented cycle is counted once and is oriented in the marked cyclic
+order.  Equation~\eqref{eq:girth-coefficient} remains valid when distinct
+shortest cycles share edges or paths.
+\end{corollary}
+
+\begin{proof}
+For any monomial in $m_q$, let $a_e$ and $b_e$ be the exponents of $t_e$ and
+$\bar t_e$, and put $d_e=a_e-b_e$.  Local $U(1)$ invariance makes $d$ a
+divergence-free integral flow.  Conjugation oddness excludes the zero flow.
+Every nonzero integral circulation decomposes into oriented simple cycles.
+Consequently,
+\begin{equation*}
+ \deg_{\mathrm{hop}}
+ =\sum_e(a_e+b_e)
+ \geq\sum_e|a_e-b_e|
+ =\lVert d\rVert_1
+ \geq g.
+\end{equation*}
+Equality requires one unit of circulation around one simple $g$-cycle.
+Physical time-reversal oddness requires an odd field degree and therefore
+adds at least one further factor.  This proves
+Eq.~\eqref{eq:girth-lower-zero}.  At total degree $g+1$, no neutral return or
+$J^z$ factor is possible.  The coefficient is consequently the sum of the
+primitive sectors in Proposition~\ref{prop:primitive-cycle}, which
+gives Eq.~\eqref{eq:girth-coefficient}.
+\end{proof}
+
+If $G_t$ is a forest, the local real-gauge criterion instead gives
+$\Mmod_\beta(AB,BC)=0$ at every temperature.  Corollary
+\ref{cor:girth-onset} is only a first-admissible-order statement.  It
+does not establish a cactus formula and it does not imply cycle additivity
+at later orders.
+
+Two exact higher-order calculations delimit this point.  First, take five
+spin-$1/2$ sites and two triangles $ABC$ and $BDE$ that share only $B$.
+Set every $J^z$ to zero, set $h_B=1$ and all other fields to zero, and choose
+unit-modulus hoppings with
+\begin{equation}
+ W_1=W_{ABC}=\ii,
+ \qquad
+ W_2=W_{BDE}=1.
+\end{equation}
+Exact coefficient extraction gives
+\begin{equation}
+ m_7=-\frac1{768}.
+ \label{eq:cactus-counterexample}
+\end{equation}
+At hopping degree six, gauge flow restricts the mixed two-cycle sector on the
+unit-modulus phase torus to a linear combination of
+$\operatorname{Im}(W_1W_2)$ and
+$\operatorname{Im}(W_1\overline{W_2})$.  The graph automorphism
+$D\leftrightarrow E$ reverses the orientation of the second triangle while
+fixing $A,B,C$, and therefore equates the two coefficients.  At $W_1=\ii$
+and $W_2=1$, the single-cycle second harmonics
+vanish.  Equation~\eqref{eq:cactus-counterexample} therefore fixes the mixed
+sector as
+\begin{equation}
+ -\frac1{1536}
+ \left[
+ \operatorname{Im}(W_1W_2)
+ +\operatorname{Im}(W_1\overline{W_2})
+ \right]
+ =-\frac1{768}\operatorname{Im}W_1\operatorname{Re}W_2.
+ \label{eq:cactus-mixed-sector}
+\end{equation}
+The primary certificate also verifies the sign reversal under $W_2\mapsto
+-W_2$.  The rational value in Eq.~\eqref{eq:cactus-counterexample} is
+reproduced by a second exact implementation of the same formal-series method.
+This is an implementation check, not an independent method.
+
+Second, take the spin-$1/2$ triangle $A\!-\!B\!-\!D\!-\!A$ and attach the
+marked site $C$ as a leaf at $B$.  Set $J^z=0$, $h_B=1$, and all other fields
+to zero.  Choose
+\begin{equation}
+ t_{AB}=t_{BD}=t_{BC}=1,
+ \qquad
+ t_{DA}=\ii.
+\end{equation}
+The only cycle omits $C$.  The same primary exact certificate nevertheless
+gives
+\begin{equation}
+ m_0=m_1=\cdots=m_7=0,
+ \qquad
+ m_8=-\frac7{368640}.
+ \label{eq:off-target-cycle-counterexample}
+\end{equation}
+Neutral returns on the leaf make the off-target cycle visible at this later
+order.  Equations~\eqref{eq:cactus-mixed-sector} and
+\eqref{eq:off-target-cycle-counterexample} show that the natural
+coefficient-level organization is by coupling multidegree, not by a sum of
+independent functions of Wilson products.
+
+
+\section{Why the axial hypothesis is necessary}
+\label{sec:axial-boundary}
+
+The onset theorems above require the absence of on-site transverse fields.
+In this section we write $h_x^z\equiv h_x$ for the longitudinal field in
+Eq.~\eqref{eq:axial-H}.  To locate the boundary of that hypothesis, add
+\begin{equation}
+ H_\perp=-\frac12\sum_x
+ \left(g_xS_x^++\overline{g_x}S_x^-\right).
+ \label{eq:transverse-field-H}
+\end{equation}
+With $S^+=S^x+\ii S^y$ and
+$H_\perp=-\sum_x(h_x^xS_x^x+h_x^yS_x^y)$, our convention is
+$g_x=h_x^x-\ii h_x^y$.  Under the local rotation
+Eq.~\eqref{eq:gauge-unitary},
+\begin{equation}
+ t_{xy}\longmapsto
+ e^{\ii(\varphi_x-\varphi_y)}t_{xy},
+ \qquad
+ g_x\longmapsto e^{\ii\varphi_x}g_x.
+ \label{eq:transverse-gauge-action}
+\end{equation}
+The open-link phase $t_{AB}\overline{g_A}g_B$ is therefore gauge invariant.
+It is not a Wilson product and it need not involve any closed path.
+For a formally complexified monomial, let $a_{xy}$ and $b_{xy}$ be the
+exponents of $t_{xy}$ and $\bar t_{xy}$ on each reference-oriented edge and
+set $d_{xy}=a_{xy}-b_{xy}$.  Let $q_g(x)$ be the net power of $g_x$ minus
+the net power of $\bar g_x$.  Use
+\begin{equation*}
+ (\operatorname{div}d)_x
+ =\sum_{x\to y}d_{xy}-\sum_{y\to x}d_{yx}.
+\end{equation*}
+Gauge invariance now imposes
+\begin{equation}
+ \operatorname{div}d+q_g=0.
+ \label{eq:transverse-flow-balance}
+\end{equation}
+Transverse insertions can therefore terminate an open hopping flow.  The
+closed-circulation argument behind the girth bound no longer applies.
+
+We first state the part of the order-seven coefficient that is independent
+of the ambient graph.  The statement is a projected coefficient identity,
+not a classification of the full $m_7$.
+
+\begin{proposition}[Ambient-independent transverse-field sector]
+\label{prop:local-transverse-sector}
+Let $A,B,C$ be distinct vertices of a finite graph, with
+$\{A,B\},\{B,C\}\in E$, and let these three vertices carry spin $1/2$.
+Other vertices and couplings are arbitrary.  Formally regard
+$t,\bar t,g,\bar g$ as independent variables and let
+$\Pi_{\mathrm{loc}}$ project $m_7$ onto the two multidegrees
+\begin{align}
+ &J^z_{AB}h_B^z t_{BC}\bar t_{BC}t_{AB}\bar g_Ag_B,
+ \nonumber\\
+ &J^z_{AB}h_B^z t_{BC}\bar t_{BC}\bar t_{AB}g_A\bar g_B.
+ \label{eq:local-transverse-multidegrees}
+\end{align}
+Then
+\begin{equation}
+ \Pi_{\mathrm{loc}}m_7
+ =\frac{J^z_{AB}h_B^z t_{BC}\bar t_{BC}}{46080\ii}
+ \left(t_{AB}\bar g_Ag_B-\bar t_{AB}g_A\bar g_B\right).
+ \label{eq:local-transverse-formal}
+\end{equation}
+On the physical parameter slice this becomes
+\begin{equation}
+ \boxed{
+ \Pi_{\mathrm{loc}}m_7
+ =\frac{J^z_{AB}h_B^z|t_{BC}|^2}{23040}
+ \operatorname{Im}\!\left(t_{AB}\overline{g_A}g_B\right).}
+ \label{eq:local-transverse-physical}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Every $m_q$ is a polynomial in the Hamiltonian parameters.  Extracting either
+multidegree in Eq.~\eqref{eq:local-transverse-multidegrees} sets every absent
+parameter to zero.  The resulting Hamiltonian is
+$H_{ABC}\otimes I_{\mathrm{spectators}}$.  The Gibbs operator factorizes,
+and the spectator dimension cancels in the partition function and in every
+normalized partial trace.  The projected coefficient is therefore identical
+to the coefficient on the isolated open path $A\!-\!B\!-\!C$.
+
+The remaining three-qubit coefficient is evaluated by the self-contained
+exact symbolic extraction described in Appendix~\ref{app:reproducibility},
+over
+\begin{equation*}
+ \mathbb Q(\ii)[x_1,\ldots,x_7]
+ \big/(x_1^2,\ldots,x_7^2).
+\end{equation*}
+It expands the normalized Gibbs state and both reduced logarithms through
+order seven before taking the modular commutator.  The two coefficients are
+\begin{align}
+ \left[J^z_{AB}h_B^z t_{BC}\bar t_{BC}t_{AB}\bar g_Ag_B\right]m_7
+ &=-\frac{\ii}{46080},
+ \nonumber\\
+ \left[J^z_{AB}h_B^z t_{BC}\bar t_{BC}\bar t_{AB}g_A\bar g_B\right]m_7
+ &=\frac{\ii}{46080}.
+ \label{eq:local-transverse-extracted-pair}
+\end{align}
+Discarding a square in the quotient ring is exact for these squarefree
+targets.  Perturbative parameter degrees are nonnegative, so a term already
+divisible by $x_j^2$ cannot later contribute to either target monomial.
+Equation~\eqref{eq:local-transverse-formal} follows, and physical
+specialization gives Eq.~\eqref{eq:local-transverse-physical}.
+\end{proof}
+
+The projection in Proposition~\ref{prop:local-transverse-sector} is the
+ambient-independent statement.  The complete coefficient can contain other
+local and nonlocal multidegrees.  A full formula is available in one sharply
+delimited local model.
+
+\begin{proposition}[Complete isolated-path coefficient]
+\label{prop:complete-local-m7}
+Consider exactly three qubits on the open path $A\!-\!B\!-\!C$.  Set
+$h_A^z=h_C^z=0$ and retain only the eight parameter families
+\begin{equation}
+ t_{AB},\ t_{BC},\ g_A,\ g_B,\ g_C,\
+ J^z_{AB},\ J^z_{BC},\ h_B^z.
+ \label{eq:eight-local-parameters}
+\end{equation}
+Define the three gauge-invariant imaginary parts
+\begin{align}
+ I_{AB}&=\operatorname{Im}
+ \left(t_{AB}\overline{g_A}g_B\right),
+ \nonumber\\
+ I_{BC}&=\operatorname{Im}
+ \left(t_{BC}\overline{g_B}g_C\right),
+ \nonumber\\
+ I_{AC}&=\operatorname{Im}
+ \left(t_{AB}t_{BC}\overline{g_A}g_C\right).
+ \label{eq:local-phase-invariants}
+\end{align}
+Then
+\begin{equation}
+ m_0=m_1=\cdots=m_6=0
+ \label{eq:local-lower-orders}
+\end{equation}
+and
+\begin{align}
+ m_7=\frac{h_B^z}{23040}\Bigg[{}
+ &J^z_{AB}\left(|t_{BC}|^2-(J^z_{BC})^2\right)I_{AB}
+ \nonumber\\
+ {}+{}&J^z_{BC}\left(|t_{AB}|^2-(J^z_{AB})^2\right)I_{BC}
+ \nonumber\\
+ {}+{}&\frac{J^z_{AB}J^z_{BC}}2 I_{AC}
+ \Bigg].
+ \label{eq:complete-local-m7}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The computer-assisted exact proof uses the self-contained extraction
+described in Appendix~\ref{app:reproducibility}.  Its exhaustive polynomial
+expansion of
+the Gibbs and reduced-logarithm series produces ten formal complex
+monomials, paired into the five real sectors displayed in
+Eq.~\eqref{eq:complete-local-m7}, and no other monomial through degree seven.
+The separate exact-arithmetic engine checks the physical formula at five
+specified nondegenerate Gaussian-rational points.  It tests an independent
+implementation of the same formal-series method, not an independent method.
+Exhaustive monomial extraction supplies the coefficient identity.
+\end{proof}
+
+If $J^z_{BC}=0$, Eq.~\eqref{eq:complete-local-m7}
+reduces to Eq.~\eqref{eq:local-transverse-physical} and $g_C$ drops out.
+Formula~\eqref{eq:complete-local-m7} is complete only under
+Eq.~\eqref{eq:eight-local-parameters}.  Enabling $h_A^z$, $h_C^z$, or
+additional ambient couplings permits further order-seven sectors.
+
+Two finite rings show why this distinction matters for the axial onset law.
+Take consecutive marked sites $A=0$, $B=1$, and $C=2$ on an oriented
+spin-$1/2$ ring.  Choose
+\begin{equation}
+ t_{AB}=1+\ii,
+ \qquad
+ t_e=1\quad(e\ne AB),
+ \qquad
+ J^z_{AB}=h_B^z=g_A=g_B=1,
+ \label{eq:transverse-ring-point}
+\end{equation}
+with every other $J^z$, longitudinal field, and transverse field equal to
+zero.  On the six-cycle, the axial value obtained by setting $g_A=g_B=0$ is
+\begin{equation}
+ m_7^{\mathrm{axial}}=\frac1{2048}.
+\end{equation}
+At the point in Eq.~\eqref{eq:transverse-ring-point}, exact extraction from
+the unprojected series through order seven instead gives
+\begin{equation}
+ m_7=\frac{49}{92160}
+ =\frac1{2048}+\frac1{23040}.
+ \label{eq:C6-transverse-contamination}
+\end{equation}
+The local open-link sector and the primitive six-cycle sector occur at the
+same order.  The exact values here and on the seven-cycle below are certified
+by the separate exact implementation summarized in
+Appendix~\ref{app:reproducibility}.
+
+On the seven-cycle at the same parameter point, the same exact extraction
+gives
+\begin{equation}
+ m_0=m_1=\cdots=m_6=0,
+ \qquad
+ m_7=\frac1{23040}.
+ \label{eq:C7-transverse-background}
+\end{equation}
+The primitive cycle multidegree is first admissible at order eight.  Thus the
+full modular commutator is already nonzero before the winding contribution
+can occur.  More generally, for a consecutive marked path on a spin-$1/2$
+cycle of length $n\geq7$, the certified local multidegree in
+Eq.~\eqref{eq:local-transverse-physical} has fixed order seven, while the
+primitive cycle term has order $n+1$.  The separation between the two orders
+therefore grows with $n$.
+
+These examples do not show that the order-seven term is the first
+transverse-field contribution in every model.  They do not classify the
+complete transverse-field expansion, exclude lower-order sectors under other
+parameter choices, or
+give an order table for cycles of lengths three, four, and five.  The local
+phase in Eq.~\eqref{eq:local-transverse-physical} is loop independent, but it
+is not phase blind.  It measures the phase of $t_{AB}$ relative to the two
+on-site transverse-field directions.
+
+No arbitrary-spin closed formula for the transverse-field background is
+asserted here.
+
+One coefficient statement remains exact after transverse fields are added.
+The primitive $h_BW_\gamma$ coefficient of the axial theorem is unchanged,
+because extracting that multidegree sets every $g_x$ and $\bar g_x$ to zero.
+It need not be the first term or the dominant term of the full modular
+commutator.  Equations~\eqref{eq:C6-transverse-contamination} and
+\eqref{eq:C7-transverse-background} prove that axiality is essential to the
+leading-order theorem stated above.

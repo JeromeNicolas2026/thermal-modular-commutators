@@ -1,0 +1,765 @@
+\section{Arbitrary-spin onset on finite unicyclic networks}
+\label{sec:unicyclic}
+
+We now determine the first coefficient allowed by gauge invariance and physical
+time reversal on a finite unicyclic graph.  The result applies to arbitrary
+irreducible site spins.  It also allows arbitrary longitudinal exchanges,
+longitudinal fields, and trees grafted onto the unique cycle.  All Hamiltonian
+parameters are held fixed as $\beta\to0$.
+
+Let $G=(V,E)$ be finite, simple, connected, and unicyclic.  Denote its unique
+cycle by $\gamma$ and its length by $n\geq3$.  Choose three distinct vertices
+$A,B,C\in V(\gamma)$.  Orient $\gamma$ so that they occur in the cyclic order
+
+\begin{equation}
+ \gamma=(A,\ldots,B,\ldots,C,\ldots,A).
+ \label{eq:marked-cycle-order}
+\end{equation}
+
+For this orientation, set
+
+\begin{equation}
+ W_\gamma=\prod_{(x,y)\in\gamma}t_{xy}.
+ \label{eq:unicyclic-W}
+\end{equation}
+
+The notation $AB$ below means the subsystem $\{A,B\}$.  It does not assert
+that $A$ and $B$ are adjacent.  The same convention applies to $BC$.
+
+\begin{theorem}[Arbitrary-spin unicyclic onset]
+\label{thm:unicyclic-onset}
+For the axial Hamiltonian \eqref{eq:axial-H}, let every $\mathcal H_x$ carry
+the irreducible spin-$s_x$ representation, with $\kappa_x$ defined in
+Eq.~\eqref{eq:kappa-definition}.  Assume $t_{xy}\in\mathbb C$ with
+$t_{yx}=\overline{t_{xy}}$, $J^z_{xy}\in\mathbb R$, and $h_x\in\mathbb R$.
+Then every Taylor coefficient of
+$\Mmod_\beta(AB,BC)$ through order $n$ vanishes, and
+
+\begin{equation}
+ \boxed{
+ \Mmod_\beta(AB,BC)
+ =2(-1)^n\beta^{n+1}h_B
+ \left(\prod_{x\in V(\gamma)}\kappa_x\right)
+ \operatorname{Im}W_\gamma
+ +O(\beta^{n+2}) .}
+ \label{eq:unicyclic-onset}
+\end{equation}
+
+No coupling is assumed to be nonzero.  Equation~\eqref{eq:unicyclic-onset}
+is therefore a statement about the leading admissible coefficient.  Its
+displayed coefficient can vanish for a particular Hamiltonian.
+\end{theorem}
+
+The proof occupies the rest of this section.  We first isolate the only
+possible monomial at order $n+1$.  We then evaluate its coefficient by
+reducing the cycle to three primitive arc cumulants.  This second step is
+needed because tracing out an arc generates multispin operators in addition
+to its endpoint hopping.
+
+\subsection{Gauge-flow grading and pruning}
+
+Write the analytic expansion near the maximally mixed state as
+
+\begin{equation}
+ \Mmod_\beta(AB,BC)=\sum_{q\geq0}\beta^q m_q.
+ \label{eq:unicyclic-series}
+\end{equation}
+
+Finite dimensionality makes this series convergent in a neighborhood of
+$\beta=0$.  The identity $\rho_\beta(H)=\rho_1(\beta H)$ shows that $m_q$ is
+homogeneous of total degree $q$ in the Hamiltonian parameters.
+
+For coefficient extraction, first write $t_e=x_e+\ii y_e$.  Each $m_q$ is a
+real polynomial in $x,y,J^z,h$.  Complexify this polynomial and make the
+invertible change of variables
+
+\begin{equation}
+ z_e=x_e+\ii y_e,
+ \qquad
+ w_e=x_e-\ii y_e.
+ \label{eq:formal-complexification}
+\end{equation}
+
+The variables $z_e$ and $w_e$ are now algebraically independent.  The
+physical coefficient is recovered on $w_e=\overline{z_e}$.  Gauge invariance
+under the vertex torus is a polynomial identity, so distinct torus characters
+vanish coefficientwise.  Equations~\eqref{eq:M-K-odd} and
+\eqref{eq:M-Theta-odd} give the polynomial identities
+
+\begin{align}
+ m_q(w,z,J^z,h)&=-m_q(z,w,J^z,h),
+ \label{eq:formal-K-oddness}\\
+ m_q(z,w,J^z,-h)&=-m_q(z,w,J^z,h).
+ \label{eq:formal-Theta-oddness}
+\end{align}
+
+This formalization also makes every edge multidegree unambiguous.
+
+Fix an orientation of each edge.  For a monomial, let $a_e$ and $b_e$ be the
+exponents of $z_e$ and $w_e$, and define the integral edge flow
+
+\begin{equation}
+ d_e=a_e-b_e.
+ \label{eq:edge-flow}
+\end{equation}
+
+Local rotations about the $z$ axis leave the modular commutator invariant.
+Character independence under this torus action means that the coefficient of
+a monomial can be nonzero only if
+
+\begin{equation}
+ \operatorname{div}d=0
+ \label{eq:flow-divergence}
+\end{equation}
+
+at every vertex.  On a unicyclic graph, any integral flow satisfying
+Eq.~\eqref{eq:flow-divergence} vanishes on every bridge.  Its restriction to
+$\gamma$ is $k$ times the consistently oriented unit flow for some
+$k\in\mathbb Z$.  This follows by removing the cycle edges, starting at a
+leaf of each remaining tree, and imposing zero divergence inward.  Zero
+divergence on the cycle then makes all oriented cycle values equal.
+
+Let $D_{\mathrm{hop}}=\sum_e(a_e+b_e)$ be the hopping degree.
+Equation~\eqref{eq:formal-K-oddness} removes the sector $d=0$.  Indeed, every
+monomial in that sector is fixed by $z\leftrightarrow w$ after identical
+factors are collected.  Every surviving monomial thus has $k\neq0$, and
+
+\begin{equation}
+ D_{\mathrm{hop}}
+ \geq\sum_e|d_e|
+ =n|k|
+ \geq n.
+ \label{eq:hopping-lower-bound}
+\end{equation}
+
+Equation~\eqref{eq:formal-Theta-oddness} says that the total field degree of
+every surviving monomial is odd and in particular is at least one.  In the
+physical Hamiltonian, this identity follows because time reversal leaves $t$
+and $J^z$ fixed in the parameterization used here, sends $h$ to $-h$, and
+reverses the modular commutator.  Equations~\eqref{eq:unicyclic-series} and
+\eqref{eq:hopping-lower-bound} now imply
+
+\begin{equation}
+ m_q=0\qquad(0\leq q\leq n).
+ \label{eq:unicyclic-low-orders-zero}
+\end{equation}
+
+Equality in the degree bound at order $n+1$ is rigid.  The flow is one unit
+around $\gamma$, one oriented hopping monomial occurs on every cycle edge,
+and exactly one longitudinal field occurs.  There is no degree
+left for a longitudinal exchange, a bridge hopping, or a neutral return.
+After combining the two conjugate orientations, one obtains
+
+\begin{equation}
+ m_{n+1}=\operatorname{Im}W_\gamma\sum_{x\in V}c_xh_x
+ \label{eq:unicyclic-leading-classification}
+\end{equation}
+
+with real constants $c_x$ that can a priori depend on the graph and its site
+spins.
+
+Equation~\eqref{eq:unicyclic-leading-classification} also proves a useful
+pruning statement.  Extract the coefficient of $h_xW_\gamma$ and set every
+parameter absent from that monomial to zero.  Every grafted tree then becomes
+a decoupled tensor factor.  If $x\notin V(\gamma)$, the remaining field acts
+on a factor disjoint from $ABC$, so the reduced state on $ABC$ is independent
+of $h_x$ and $c_x=0$.  If $x\in V(\gamma)$, every off-cycle normalized trace
+equals one.  The coefficient is therefore exactly the coefficient of the
+isolated marked cycle, and the remaining constants depend only on the cycle
+spins.  We may work with $H_\gamma$ from now on.
+
+\subsection{Three-site expansion through fourth order}
+\label{sec:three-site-expansion}
+
+The triangular seed below uses a general local expansion that we record here.
+In this subsection, $H$ is a Hamiltonian on
+$\mathcal H_A\otimes\mathcal H_B\otimes\mathcal H_C$.  A scalar can be
+subtracted from $H$ without changing its Gibbs state, so we take
+$\tau(H)=0$, where
+
+\begin{equation}
+ \tau(O)=\frac1d\operatorname{Tr}O,
+ \qquad
+ d=\dim(\mathcal H_A\otimes\mathcal H_B\otimes\mathcal H_C).
+ \label{eq:normalized-trace}
+\end{equation}
+
+For $X\subseteq ABC$, let $X^c$ denote the complement inside $ABC$ and
+introduce the trace-preserving conditional expectation
+
+\begin{equation}
+ \E_X(O)
+ =\frac{1}{d_{X^c}}\operatorname{Tr}_{X^c}(O)\otimes I_{X^c}.
+ \label{eq:conditional-expectation}
+\end{equation}
+
+Set
+
+\begin{equation}
+ r_\beta=d\rho_\beta
+ =\frac{e^{-\beta H}}{\tau(e^{-\beta H})},
+ \qquad
+ L_X(\beta)=\log\E_X(r_\beta).
+ \label{eq:r-and-L}
+\end{equation}
+
+Since
+$\E_X(r_\beta)=d_X\rho_{\beta,X}\otimes I_{X^c}$,
+$L_X$ differs from the extended operator
+$\widehat{\log\rho_{\beta,X}}$ only by a scalar.  Hence
+
+\begin{equation}
+ \Mmod_\beta(AB,BC)
+ =\ii\tau\left(r_\beta
+ [L_{AB}(\beta),L_{BC}(\beta)]\right).
+ \label{eq:M-normalized}
+\end{equation}
+
+The normalized Gibbs density has the expansion
+
+\begin{equation}
+ r_\beta
+ =I-\beta H
+ +\frac{\beta^2}{2}
+ \left(H^2-\tau(H^2)I\right)
+ +O(\beta^3).
+ \label{eq:r-expansion}
+\end{equation}
+
+Define
+
+\begin{equation}
+ P=\E_{AB}(H),
+ \qquad
+ Q=\E_{BC}(H),
+ \label{eq:PQ}
+\end{equation}
+
+and, modulo scalar multiples of the identity,
+
+\begin{align}
+ A_2&=\frac12\left(\E_{AB}(H^2)-P^2\right),
+ \label{eq:A2}\\
+ B_2&=\frac12\left(\E_{BC}(H^2)-Q^2\right).
+ \label{eq:B2}
+\end{align}
+
+Expanding the logarithms gives
+
+\begin{align}
+ L_{AB}(\beta)&=-\beta P+\beta^2A_2+O(\beta^3),
+ \label{eq:LAB-expansion}\\
+ L_{BC}(\beta)&=-\beta Q+\beta^2B_2+O(\beta^3).
+ \label{eq:LBC-expansion}
+\end{align}
+
+\begin{lemma}[Expansion through fourth order]
+\label{lem:fourth-order-expansion}
+The coefficient of $\beta^2$ in the modular commutator vanishes.  The next
+two coefficients are
+
+\begin{align}
+ [\beta^3]\Mmod_\beta(AB,BC)
+ &=-\ii\tau\bigl(H[P,Q]\bigr),
+ \label{eq:m3-general}\\
+ [\beta^4]\Mmod_\beta(AB,BC)
+ &=\ii\tau\left[
+ \frac12H^2[P,Q]
+ +H\bigl([P,B_2]+[A_2,Q]\bigr)
+ \right].
+ \label{eq:m4-general}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Insert Eqs.~\eqref{eq:r-expansion} through
+\eqref{eq:LBC-expansion} into Eq.~\eqref{eq:M-normalized}.  At order
+$\beta^2$ one obtains $\ii\tau([P,Q])=0$.  At order $\beta^3$, every bare
+commutator has zero trace, leaving Eq.~\eqref{eq:m3-general}.  At order
+$\beta^4$, terms involving the third-order coefficients of $L_{AB}$ or
+$L_{BC}$ again occur as bare commutators.  The remaining contributions are
+those in Eq.~\eqref{eq:m4-general}.
+\end{proof}
+
+\subsection{Local spin moments and the triangular seed}
+\label{sec:arbitrary-spin-triangle}
+
+Let
+
+\begin{equation}
+ \tau_x(O)=\frac{1}{2s_x+1}\operatorname{Tr}_x O.
+ \label{eq:local-normalized-trace}
+\end{equation}
+
+Rotational invariance of the normalized trace and the spin commutation
+relations give
+
+\begin{align}
+ \tau_x(S_x^a)&=0,
+ \label{eq:spin-first-moment}\\
+ \tau_x(S_x^aS_x^b)&=\kappa_x\delta_{ab},
+ \label{eq:spin-second-moment}\\
+ \tau_x(S_x^aS_x^bS_x^c)
+ &=\frac{\ii\kappa_x}{2}\varepsilon_{abc}.
+ \label{eq:spin-third-moment}
+\end{align}
+
+For completeness, the second moment is an invariant rank-two tensor.  Its
+trace over $a=b$ is $s_x(s_x+1)$, which gives
+Eq.~\eqref{eq:spin-second-moment}.  The invariant rank-three tensor is
+antisymmetric.  Taking the trace of
+$[S_x^a,S_x^b]S_x^c=\ii\varepsilon_{abd}S_x^dS_x^c$ fixes its coefficient
+and proves Eq.~\eqref{eq:spin-third-moment}.  In the ladder basis these
+identities read
+
+\begin{equation}
+ \tau_x(S_x^+S_x^-)=\tau_x(S_x^-S_x^+)=2\kappa_x,
+ \label{eq:spin-ladder-second-moment}
+\end{equation}
+
+while the six orderings of $S_x^+,S_x^-,S_x^z$ have normalized trace
+$+\kappa_x$ or $-\kappa_x$, three of each.
+
+\begin{proposition}[Arbitrary-spin triangular seed]
+\label{prop:arbitrary-spin-triangle}
+For the isolated three-site axial triangle oriented as
+$A\to B\to C\to A$, with arbitrary irreducible spins and arbitrary axial
+couplings,
+
+\begin{equation}
+ \Mmod_\beta(AB,BC)
+ =-2\beta^4h_B\kappa_A\kappa_B\kappa_C
+ \operatorname{Im}(t_{AB}t_{BC}t_{CA})+O(\beta^5).
+ \label{eq:arbitrary-spin-triangle}
+\end{equation}
+
+The coefficient is independent of $h_A$, $h_C$, and all $J^z$ couplings.
+\end{proposition}
+
+\begin{proof}
+Homogeneity, gauge invariance, conjugation oddness, and field oddness give
+
+\begin{equation}
+ [\beta^4]\Mmod_\beta(AB,BC)
+ =(c_Ah_A+c_Bh_B+c_Ch_C)
+ \operatorname{Im}(t_{AB}t_{BC}t_{CA}).
+ \label{eq:triangle-arbitrary-classification}
+\end{equation}
+
+There is no degree available for $J^z$.  Evaluate the three constants at the
+unit-amplitude parameter point
+
+\begin{equation}
+ t_{AB}=t_{BC}=1,
+ \qquad
+ t_{CA}=\ii,
+ \qquad
+ J^z=0.
+ \label{eq:arbitrary-triangle-point}
+\end{equation}
+
+Use $P,Q,A_2,B_2$ from Eqs.~\eqref{eq:PQ} through \eqref{eq:B2} and write
+
+\begin{align}
+ T_0&=\frac{\ii}{2}\tau\bigl(H^2[P,Q]\bigr),
+ \label{eq:triangle-T0}\\
+ T_1&=\ii\tau\bigl(H[P,B_2]\bigr),
+ \label{eq:triangle-T1}\\
+ T_2&=\ii\tau\bigl(H[A_2,Q]\bigr).
+ \label{eq:triangle-T2}
+\end{align}
+
+Lemma~\ref{lem:fourth-order-expansion} gives
+$[\beta^4]\Mmod_\beta=T_0+T_1+T_2$.  Differentiation with respect to one
+field at zero field gives the exact contraction table
+
+\begin{equation}
+\begin{array}{c|ccc|c}
+ r&\partial_{h_r}T_0&\partial_{h_r}T_1&\partial_{h_r}T_2
+ &\partial_{h_r}m_4\\
+ \hline
+ A&0&0&0&0\\
+ B&2K_\triangle&-2K_\triangle&-2K_\triangle&-2K_\triangle\\
+ C&0&0&0&0
+\end{array}
+\qquad
+K_\triangle=\kappa_A\kappa_B\kappa_C.
+ \label{eq:arbitrary-spin-contraction-table}
+\end{equation}
+
+We justify the lift from the explicit spin-$1/2$ contraction in
+Appendix~\ref{app:pauli-certificate}.  In every nonzero square-free
+contraction of $h_r t_{AB}t_{BC}t_{CA}$, each vertex distinct from $r$
+carries one $S^+$ and one $S^-$.  The vertex $r$ carries one each of
+$S^+$, $S^-$, and $S^z$.  If a conditional expectation splits the letters
+at a vertex among two normalized traces, one factor contains a single
+traceless generator and the contraction vanishes.  Every surviving
+contraction therefore uses exactly one of
+Eqs.~\eqref{eq:spin-ladder-second-moment} and
+\eqref{eq:spin-third-moment} at each vertex.  Its ratio to the spin-$1/2$
+value is $4\kappa_x$ at vertex $x$.  Multiplying every entry of the qubit
+table by
+$\prod_{x\in\{A,B,C\}}4\kappa_x$ gives
+Eq.~\eqref{eq:arbitrary-spin-contraction-table}.  Summing its three columns
+proves Eq.~\eqref{eq:arbitrary-spin-triangle}.
+\end{proof}
+
+This argument lifts the square-free contraction, not the Pauli
+anticommutator identities.  Only the second and third normalized spin
+moments are used.
+
+\subsection{Primitive cumulants of the three marked arcs}
+
+Split the oriented cycle into the three internally disjoint arcs
+
+\begin{equation}
+ P_1:A\longrightarrow B,
+ \qquad
+ P_2:B\longrightarrow C,
+ \qquad
+ P_3:C\longrightarrow A.
+ \label{eq:three-marked-arcs}
+\end{equation}
+
+Let their lengths be $\ell_1,\ell_2,\ell_3\geq1$, so that
+$\ell_1+\ell_2+\ell_3=n$.  Put $U=\{A,B,C\}$ and
+$I=V(\gamma)\setminus U$.  With
+
+\begin{equation}
+ \tau_I(O)=\frac{1}{d_I}\operatorname{Tr}_I O,
+ \qquad
+ d_I=\prod_{x\in I}(2s_x+1),
+ \label{eq:internal-normalized-trace}
+\end{equation}
+
+the normalized partial trace over $I$ defines
+
+\begin{align}
+ G(\beta)&=\tau_I(e^{-\beta H_\gamma}),
+ \label{eq:arc-G}\\
+ Q(\beta)&=-\log G(\beta).
+ \label{eq:arc-Q}
+\end{align}
+
+The physical reduced state on $U$ is
+$G/\operatorname{Tr}_UG$.  Define the real-analytic functional near $Q=0$
+
+\begin{equation}
+ \mathcal F(Q)
+ =\Mmod_{e^{-Q}/\operatorname{Tr}_Ue^{-Q}}(AB,BC).
+ \label{eq:triangle-functional}
+\end{equation}
+
+Then $\Mmod_\beta(AB,BC)=\mathcal F(Q(\beta))$.  The dimensionless
+definition \eqref{eq:arc-Q} is essential.  The composed functional is
+$\mathcal F(Q)$, not the same functional evaluated on
+$-\beta^{-1}\log G$.
+
+Consider an oriented arc
+
+\begin{equation}
+ P=(v_0=u,v_1,\ldots,v_\ell=v),
+ \qquad
+ T_P=\prod_{j=0}^{\ell-1}t_{v_jv_{j+1}},
+ \label{eq:oriented-arc}
+\end{equation}
+
+and let $P^\circ=\{v_1,\ldots,v_{\ell-1}\}$.  The symbol $[P]$ denotes
+extraction of the primitive multiaffine coefficient in which every oriented
+hopping of $P$ occurs once and no other Hamiltonian parameter occurs.  The
+monomial $T_P$ is retained by this notation.
+
+\begin{lemma}[Primitive arc jet]
+\label{lem:primitive-arc-jet}
+For every marked arc $P$,
+
+\begin{equation}
+ [P]G
+ =(-\beta)^\ell
+ \left(\prod_{x\in P^\circ}\kappa_x\right)
+ \frac{T_P}{2}S_u^+S_v^-.
+ \label{eq:primitive-arc-G}
+\end{equation}
+
+Consequently,
+
+\begin{equation}
+ [P]Q=-[P]G.
+ \label{eq:primitive-arc-Q}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Only the term of degree $\ell$ in the exponential can contribute to
+$[P]G$.  The bond normalization gives $2^{-\ell}$.  At every internal
+vertex the two possible local orders are $S^-S^+$ and $S^+S^-$.  Both have
+normalized trace $2\kappa_x$ by
+Eq.~\eqref{eq:spin-ladder-second-moment}.  All $\ell!$ global orderings
+therefore give the same partially traced operator, and they cancel the
+factorial in the exponential.  The resulting scalar is
+$2^{-\ell}\prod_{x\in P^\circ}2\kappa_x
+=\frac12\prod_{x\in P^\circ}\kappa_x$, which proves
+Eq.~\eqref{eq:primitive-arc-G}.
+
+To extract $[P]\log G$, expand the logarithm around $G=I$.  Every nonlinear
+term would split the edge set of $P$ into two or more nonempty proper
+subsets.  Lemma~\ref{lem:proper-subpath}, proved next, makes each such factor
+zero.  Thus $[P]\log G=[P]G$, and the minus sign in
+Eq.~\eqref{eq:arc-Q} proves Eq.~\eqref{eq:primitive-arc-Q}.
+\end{proof}
+
+\begin{lemma}[Proper-subpath vanishing]
+\label{lem:proper-subpath}
+In the primitive edge sector of the three marked arcs, a coefficient block
+means one factor arising in an ordered product from the exponential or
+logarithmic expansion.  Such a coefficient of $G$ vanishes if its selected
+edges contain a nonempty proper subset of at least one arc and do not contain
+the rest of that arc in the same block.  The conclusion remains true when
+the block contains edges from the other arcs and the unique longitudinal
+field.
+\end{lemma}
+
+\begin{proof}
+The selected edges of a proper arc subset have a connected component with an
+endpoint in the interior of that arc.  At this endpoint the local operator
+has axial charge $+1$ or $-1$.  Every other selected edge in the same block
+lies either on the same proper subset or on an arc with a disjoint interior,
+so it cannot cancel this local charge.  A longitudinal field has charge zero.
+The normalized trace of a charged local operator vanishes under rotations
+about the $z$ axis.  Hence the entire partial trace is zero.
+\end{proof}
+
+\begin{lemma}[Pairwise shuffle cancellation]
+\label{lem:pairwise-shuffle}
+Let $P_i$ and $P_j$ be two complete marked arcs.  In the primitive sector
+with no further insertion,
+
+\begin{equation}
+ [P_iP_j]G
+ =\frac12\bigl([P_i]G[P_j]G+[P_j]G[P_i]G\bigr).
+ \label{eq:two-arc-shuffle}
+\end{equation}
+
+The same identity holds for a complete arc and one field on a retained
+vertex.  It follows that
+
+\begin{equation}
+ [P_iP_j]Q=0,
+ \qquad
+ [P_i h_r]Q=0
+ \quad(r\in U).
+ \label{eq:pair-jets-zero}
+\end{equation}
+
+If the field is on an internal vertex of $P_i$, then
+
+\begin{equation}
+ [P_j h_r]Q=0
+ \qquad(j=1,2,3)
+ \label{eq:internal-field-pair-zero}
+\end{equation}
+
+as well.
+\end{lemma}
+
+\begin{proof}
+The raw coefficient of two complete arcs is the sum over all shuffles of
+their bond letters.  The internal traces are independent of the order by
+Eq.~\eqref{eq:spin-ladder-second-moment}.  Exactly half of the shuffles put
+the endpoint letter of $P_i$ before the endpoint letter of $P_j$, and half
+put it after.  This proves Eq.~\eqref{eq:two-arc-shuffle}.  The argument for
+an arc and a retained field is identical.
+
+By Lemma~\ref{lem:proper-subpath}, the quadratic term is the only nonlinear
+term in $\log G$ that can contribute to either two-ingredient coefficient.
+It is exactly one half of the symmetrized product in
+Eq.~\eqref{eq:two-arc-shuffle}.  Explicitly,
+
+\begin{align}
+ [P_iP_j]Q
+ ={}&-[P_iP_j]G
+ +\frac12\bigl([P_i]G[P_j]G+[P_j]G[P_i]G\bigr)
+ =0.
+ \label{eq:two-arc-Q-cancellation}
+\end{align}
+
+The same formula with one arc replaced by the retained field proves the
+second identity in Eq.~\eqref{eq:pair-jets-zero}.
+
+Now place the field at an internal vertex $r$ of $P_i$.  The raw
+$P_i$-field coefficient contains the complete symmetrization of
+$S_r^+,S_r^-,S_r^z$.  Its normalized trace is zero because the six traces in
+Eq.~\eqref{eq:spin-third-moment} cancel in three opposite pairs.  The field
+singleton has trace $\tau_r(S_r^z)=0$, so there is no logarithmic product to
+restore the coefficient.  If $j\ne i$, the $P_j$ coefficient factors from
+the one-site field trace and vanishes for the same reason.  This proves
+Eq.~\eqref{eq:internal-field-pair-zero} for every marked arc.
+\end{proof}
+
+\subsection{Composition with the modular functional}
+
+We need two elementary derivatives of the state functional at the maximally
+mixed state.  We complexify its real-analytic derivatives when they act on
+the formal non-Hermitian oriented arc jets.
+
+\begin{lemma}[First two derivatives]
+\label{lem:triangle-functional-low-derivatives}
+The functional in Eq.~\eqref{eq:triangle-functional} satisfies
+
+\begin{equation}
+ D\mathcal F(0)=0,
+ \qquad
+ D^2\mathcal F(0)=0.
+ \label{eq:F-first-two-zero}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For a perturbation $R$, each reduced logarithm is a scalar plus the linear
+term $-\E_X(R)$ and terms of higher degree, where $\E_X$ is the normalized
+conditional expectation onto $X$.  Their commutator is
+therefore at least quadratic, which gives $D\mathcal F(0)=0$.  At quadratic
+order, the state in the expectation value may be replaced by the maximally
+mixed state.  For two perturbations $R,S$, polarization leaves a sum of
+normalized traces of commutators such as
+$\ii\tau_U([\E_{AB}(R),\E_{BC}(S)])$.  Every such trace is
+zero.  The linear correction to the Gibbs weight first multiplies a
+quadratic commutator at cubic order.  Hence $D^2\mathcal F(0)=0$.
+\end{proof}
+
+We can now finish the proof of Theorem~\ref{thm:unicyclic-onset}.
+
+\begin{proof}
+The grading argument already proves
+Eq.~\eqref{eq:unicyclic-low-orders-zero} and reduces the coefficient at order
+$n+1$ to one cycle orientation and one field.  By pruning, it remains to
+evaluate the isolated cycle.
+
+First suppose that the field lies at one of the retained vertices.  Regard
+the individual edge variables and the field variable as the variables of
+the composition $\mathcal F(Q)$.  The multiaffine chain rule for the
+primitive coefficient is a sum over labeled set partitions, with no
+additional factorial.  Lemma
+\ref{lem:proper-subpath} says that any nonzero block containing arc edges
+must contain one or more complete arcs.  We may therefore organize the
+partitions by the four ingredients
+
+\begin{equation}
+ \{P_1,P_2,P_3,h_r\}.
+ \label{eq:four-ingredients}
+\end{equation}
+
+Four singleton blocks contribute the polarized fourth derivative of
+$\mathcal F$.  A pair and two singletons would contribute a third derivative,
+but every possible pair jet of $Q$ vanishes by
+Lemma~\ref{lem:pairwise-shuffle}.  A triple and a singleton, or two pairs,
+can contribute only through $D^2\mathcal F(0)$.  One block can contribute
+only through $D\mathcal F(0)$.  Lemma
+\ref{lem:triangle-functional-low-derivatives} removes the last two cases.
+Only the four singleton arc and field jets survive in this primitive
+multiaffine coefficient.
+
+If the field lies in the interior of an arc, its singleton jet vanishes under
+the partial trace.  A block containing the field and a proper part of that
+arc vanishes by Lemma~\ref{lem:proper-subpath}.  The block containing the
+field and any complete arc has zero pair jet by
+Eq.~\eqref{eq:internal-field-pair-zero}.  Every larger block meets either
+$D^2\mathcal F(0)$ or $D\mathcal F(0)$.  Thus the coefficient of
+$h_rW_\gamma$ in $m_{n+1}$ vanishes for every internal-cycle vertex $r$.
+The pruning argument gives the same conclusion for every off-cycle vertex.
+Of the retained fields, Proposition
+\ref{prop:arbitrary-spin-triangle} retains only $h_B$.
+
+For an arc $P:u\to v$ of length $\ell$, its singleton jet can be written
+
+\begin{equation}
+ [P]Q
+ =\frac{\beta}{2}t_{uv}^{\mathrm{eff}}S_u^+S_v^-,
+ \qquad
+ t_{uv}^{\mathrm{eff}}
+ =(-\beta)^{\ell-1}
+ \left(\prod_{x\in P^\circ}\kappa_x\right)T_P.
+ \label{eq:primitive-effective-hopping}
+\end{equation}
+
+Denote the reverse-oriented arc sector by $\overline P$.  On the physical
+parameter slice it supplies the adjoint singleton, and
+\begin{equation}
+ [P]Q+[\overline P]Q
+ =\frac{\beta}{2}\left(
+ t_{uv}^{\mathrm{eff}}S_u^+S_v^-
+ +\overline{t_{uv}^{\mathrm{eff}}}S_u^-S_v^+
+ \right).
+ \label{eq:primitive-effective-Hermitian-link}
+\end{equation}
+These are identities only for primitive singleton jets of the dimensionless
+operator $Q$.  No effective-Hamiltonian replacement is being made.  The
+field singleton is $-\beta h_rS_r^z$.  Polynomial complexification allows
+the polarized triangular coefficient in
+Proposition~\ref{prop:arbitrary-spin-triangle} to be applied orientation by
+orientation.  The conjugate pair then recombines into
+$\operatorname{Im}W_\gamma$.  The powers of $\beta$ are
+\begin{equation}
+ \beta^4\prod_{i=1}^3\beta^{\ell_i-1}=\beta^{n+1},
+ \label{eq:three-arc-beta-power}
+\end{equation}
+and the effective link factors give the sign
+
+\begin{equation}
+ (-1)^{(\ell_1-1)+(\ell_2-1)+(\ell_3-1)}=(-1)^{n-3}.
+ \label{eq:three-arc-sign}
+\end{equation}
+
+The three arc products satisfy
+$T_{P_1}T_{P_2}T_{P_3}=W_\gamma$.  Their internal spin factors, together with
+$\kappa_A\kappa_B\kappa_C$ from the triangular seed, give
+$\prod_{x\in V(\gamma)}\kappa_x$.  Finally,
+
+\begin{equation}
+ -2(-1)^{n-3}=2(-1)^n.
+ \label{eq:unicyclic-final-sign}
+\end{equation}
+
+This proves the coefficient in Eq.~\eqref{eq:unicyclic-onset}.  Analyticity
+supplies the stated remainder for fixed Hamiltonian parameters.  The proof
+was polynomial after formal complexification, so it also covers vanishing
+hoppings and hence $W_\gamma=0$.
+\end{proof}
+
+\subsection{Orientation and nonconsecutive marked sites}
+
+No step above assumes that the marked vertices are consecutive.  The three
+arc lengths enter the displayed leading coefficient only through their sum,
+the cycle product, and the local $\kappa_x$ factors.  Thus the coefficient in
+Eq.~\eqref{eq:unicyclic-onset} is independent of the distribution of the
+three marked-site separations.
+
+If an external orientation of $\gamma$ is fixed instead of the convention in
+Eq.~\eqref{eq:marked-cycle-order}, define
+
+\begin{equation}
+ \varepsilon_\gamma(A,B,C)=
+ \begin{cases}
+ +1 & \text{if $A,B,C$ occur in that cyclic order},\\
+ -1 & \text{if $A,C,B$ occur in that cyclic order}.
+ \end{cases}
+ \label{eq:cyclic-order-sign}
+\end{equation}
+
+The right-hand side of Eq.~\eqref{eq:unicyclic-onset} then acquires the factor
+$\varepsilon_\gamma(A,B,C)$.  Equivalently, one may always orient the cycle
+through $A,B,C$ as in Eq.~\eqref{eq:marked-cycle-order}.  Exchanging $A$ and
+$C$ reverses the result, in agreement with the antisymmetry of the modular
+commutator.
+
+When $s_x=1/2$ at every cycle vertex, $\kappa_x=1/4$ and
+
+\begin{equation}
+ 2(-1)^n\prod_{x\in V(\gamma)}\kappa_x
+ =\frac{(-1)^n}{2^{2n-1}}.
+ \label{eq:qubit-unicyclic-specialization}
+\end{equation}
+
+This is the qubit cycle-length law.  The sharper even-$n$ remainder available
+for an isolated qubit XY ring is a separate restricted statement.  It is not
+part of Theorem~\ref{thm:unicyclic-onset}.

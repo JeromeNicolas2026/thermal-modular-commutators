@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite the version-specific Zenodo record."
+title: "Thermal modular commutators as joint probes of gauge flux and broken time-reversal symmetry in axial spin networks: source and validation archive"
+type: software
+version: "0.6.0"
+repository-code: "https://github.com/JeromeNicolas2026/thermal-modular-commutators"
+authors:
+  - family-names: "Nicolas"
+    given-names: "Jérôme"
+    affiliation: "Lycée Saint-Charles, Marseille, France"
+contact:
+  - family-names: "Nicolas"
+    given-names: "Jérôme"
+    email: "jerome.nicolas@ac-aix-marseille.fr"
+abstract: >-
+  Source package and validation code for the manuscript "Thermal modular
+  commutators as joint probes of gauge flux and broken time-reversal symmetry
+  in axial spin networks." The archive contains REVTeX and portable LaTeX
+  sources, a rendered preprint, exact-arithmetic certificates for the
+  arbitrary-spin unicyclic onset theorem and the axial boundary, numerical
+  ring checks, and SHA-256 checksums for the deposited files.
+keywords:
+  - "modular commutator"
+  - "quantum spin networks"
+  - "gauge flux"
+  - "Wilson loop"
+  - "Dzyaloshinskii-Moriya interaction"
+  - "high-temperature expansion"
+  - "exact arithmetic"
+  - "Jordan-Wigner transformation"
